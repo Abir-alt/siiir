@@ -1,5 +1,6 @@
 package com.example.myapplication.restapi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,9 +10,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 
 import com.example.myapplication.Entity.Student;
 import com.example.myapplication.R;
@@ -21,7 +20,7 @@ import java.util.List;
 public class StrudnetHomeActivity extends AppCompatActivity {
 
 
-    Button getBtn;
+    Button getBtn, addBtn ;
 
 
     TextView tv;
@@ -34,7 +33,18 @@ public class StrudnetHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_strudnet_home);
 
         getBtn = findViewById(R.id.getAll);
+        addBtn = findViewById(R.id.addstudent);
         tv = findViewById(R.id.textViewGetAll);
+
+
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(StrudnetHomeActivity.this, StudentAddActivity.class );
+                startActivity(intent);
+            }
+        });
 
 
         getBtn.setOnClickListener(new View.OnClickListener() {
